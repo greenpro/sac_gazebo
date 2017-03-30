@@ -22,7 +22,7 @@
         args="-urdf -model scorbot -param robot_description" />
 
     <!-- Load the joint controller configurations from the yaml file to the parameter server -->
-    <rosparam file="$(find sac_controllers)/config/scorbot_control.yaml" command="load" />
+    <rosparam file="$(find sac_gazebo)/config/scorbot_control.yaml" command="load" />
 
     <!-- Load the controllers -->
     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
