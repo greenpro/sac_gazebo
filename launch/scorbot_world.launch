@@ -30,8 +30,8 @@
                                                 base_position_controller
                                                 shoulder_position_controller
                                                 elbow_position_controller
-                                                pitch_position_controller
-                                                roll_position_controller
+                                                wrist_pitch_position_controller
+                                                wrist_roll_position_controller
                                                 pad1_position_controller
                                                 pad2_position_controller" />
 
