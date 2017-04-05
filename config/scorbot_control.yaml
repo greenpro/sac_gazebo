@@ -23,12 +23,12 @@ scorbot:
         type: effort_controllers/JointPositionController
         joint: roll_joint
         pid: {p: 100.0, i: 0.01, d: 10.0}
-    pad1_position_controller:
+    lpad_position_controller:
         type: effort_controllers/JointPositionController
-        joint: pad1_joint
+        joint: lpad_joint
         pid: {p: 100.0, i: 0.01, d: 10.0}
-    pad2_position_controller:
+    rpad_position_controller:
         type: effort_controllers/JointPositionController
-        joint: pad2_joint
+        joint: rpad_joint
         pid: {p: 100.0, i: 0.01, d: 10.0}
 
