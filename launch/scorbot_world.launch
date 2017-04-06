@@ -33,7 +33,7 @@
                                                 wrist_pitch_position_controller
                                                 wrist_roll_position_controller
                                                 lpad_position_controller
-                                                pad2_position_controller" />
+                                                rpad_position_controller" />
 
     <!-- Convert the joint states to T transforms for RViz, etc. -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"

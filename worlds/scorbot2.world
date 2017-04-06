@@ -176,9 +176,9 @@
       </link>
       <static>0</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>-0 -0.3 0 0 -0 0</pose>
+      <pose frame=''>-0 -0.45 0.0001 0 -0 0</pose>
     </model>
-    <model name='tower1'>
+    <!--model name='tower1'>
       <link name='link_0'>
         <inertial>
           <mass>1</mass>
@@ -369,7 +369,7 @@
       <static>0</static>
       <allow_auto_disable>1</allow_auto_disable>
       <pose frame=''>-0 -0.3 0 0 -0 0</pose>
-    </model>
+    </model-->
 
     <state world_name='default'>
       <sim_time>166 807000000</sim_time>
