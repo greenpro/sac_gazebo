@@ -36,8 +36,8 @@
                                                 pad2_position_controller" />
 
     <!-- Convert the joint states to T transforms for RViz, etc. -->
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    <!--node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
         respawn="false" output="screen">
         <remap from="/joint_states" to="/scorbot/joint_states" />
-    </node>
+    </node-->
 </launch>

@@ -83,9 +83,10 @@
     </spherical_coordinates>
     
     <model name='tower0'>
+
       <link name='link_0'>
         <inertial>
-          <mass>1</mass>
+          <mass>0.001</mass>
           <inertia>
             <ixx>0.145833</ixx>
             <ixy>0</ixy>
@@ -99,14 +100,13 @@
         <visual name='visual'>
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
-            <cylinder>
+            <box>
+                <size>0.040 0.040 0.050</size>
+            </box>
+            <!--cylinder>
               <radius>0.020</radius>
               <length>0.05</length>
-            </cylinder>
-            <cylinder>
-              <radius>0.021</radius>
-              <length>0.001</length>
-            </cylinder>
+            </cylinder-->
           </geometry>
           <material>
             <lighting>1</lighting>
@@ -123,14 +123,13 @@
           <max_contacts>10</max_contacts>
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
-            <cylinder>
+            <box>
+                <size>0.040 0.040 0.050</size>
+            </box>
+            <!--cylinder>
               <radius>0.020</radius>
               <length>0.05</length>
-            </cylinder>
-            <cylinder>
-              <radius>0.021</radius>
-              <length>0.001</length>
-            </cylinder>
+            </cylinder-->
           </geometry>
           <surface>
             <friction>
@@ -184,8 +183,9 @@
       </link>
       <static>0</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>0.120 -0.356 0.0001 0 -0 0</pose>
+      <pose frame=''>0.120 -0.375 0.0001 0 -0 0</pose>
     </model>
+
     <!--model name='tower1'>
       <link name='link_0'>
         <inertial>
