@@ -29,6 +29,8 @@
               <ode>
                 <mu>100</mu>
                 <mu2>50</mu2>
+                <kp>1e+100</kp>
+                <kd>1e-100</kd>
               </ode>
               <torsional>
                 <ode/>
@@ -83,59 +85,10 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
  
-    <!--model name='tower0'>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://tower0/meshes/tower0.dae</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://tower0/meshes/tower0.dae</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>0.336 -0.0001 0 0 0 0</pose>
-    </model-->   
-
-    <model name='tower0'>
+    <model name='ground2'>
       <link name='link_0'>
         <inertial>
-          <mass>0.001</mass>
+          <mass>0.0001</mass>
           <inertia>
             <ixx>0.145833</ixx>
             <ixy>0</ixy>
@@ -149,10 +102,9 @@
         <visual name='visual'>
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
-            <mesh>
-              <uri>model://tower0/meshes/tower0.dae</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
+	    <box>
+	      <size>4 4 0.00001</size>
+	    </box>
           </geometry>
           <material>
             <lighting>1</lighting>
@@ -169,10 +121,9 @@
           <max_contacts>10</max_contacts>
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
-            <mesh>
-              <uri>model://tower0/meshes/tower0.dae</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
+	    <box>
+	      <size>4 4 0.00001</size>
+	    </box>
           </geometry>
           <surface>
             <friction>
@@ -204,8 +155,8 @@
               <ode>
                 <soft_cfm>0</soft_cfm>
                 <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
+                <kp>1e+100</kp>
+                <kd>1e-100</kd>
                 <max_vel>0.01</max_vel>
                 <min_depth>0</min_depth>
               </ode>
@@ -214,8 +165,111 @@
                 <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
                 <soft_cfm>0</soft_cfm>
                 <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
+                <kp>1e+100</kp>
+                <kd>1e-100</kd>
+              </bullet>
+            </contact>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>0 0 0.000005 0 0 0</pose>
+    </model>
+ 
+    <model name='tower0'>
+      <link name='link_0'>
+        <inertial>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.145833</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.145833</iyy>
+            <iyz>0</iyz>
+            <izz>0.125</izz>
+          </inertia>
+        </inertial>
+        <pose frame=''>0 0 0  0 0 0</pose>
+        <visual name='visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+	    <box>
+	      <size>0.04 0.04 0.04</size>
+	    </box>
+            <!--mesh>
+              <uri>model://tower0/meshes/tower0.dae</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh-->
+          </geometry>
+          <material>
+            <lighting>1</lighting>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+	    <box>
+	      <size>0.04 0.04 0.04</size>
+	    </box>
+            <!--mesh>
+              <uri>model://tower0/meshes/tower0.dae</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh-->
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>100</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <coefficient>1</coefficient>
+                <patch_radius>0</patch_radius>
+                <surface_radius>0</surface_radius>
+                <use_patch_radius>1</use_patch_radius>
+                <ode>
+                  <slip>0</slip>
+                </ode>
+              </torsional>
+            </friction>
+            <bounce>
+              <restitution_coefficient>0</restitution_coefficient>
+              <threshold>1e+06</threshold>
+            </bounce>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+              <collide_bitmask>1</collide_bitmask>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+100</kp>
+                <kd>1e-100</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+              <bullet>
+                <split_impulse>1</split_impulse>
+                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+100</kp>
+                <kd>1e-100</kd>
               </bullet>
             </contact>
           </surface>
@@ -228,11 +282,11 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose frame=''>0.336 0 0.0001 0 0 0</pose>
     </model>
-
-    <!--model name='tower1'>
+ 
+    <model name='tower1'>
       <link name='link_0'>
         <inertial>
-          <mass>1</mass>
+          <mass>0.0001</mass>
           <inertia>
             <ixx>0.145833</ixx>
             <ixy>0</ixy>
@@ -242,14 +296,17 @@
             <izz>0.125</izz>
           </inertia>
         </inertial>
-        <pose frame=''>0 3e-06 0 0 -0 0</pose>
+        <pose frame=''>0 0 0  0 0 0</pose>
         <visual name='visual'>
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
-            <cylinder>
-              <radius>0.02</radius>
-              <length>0.05</length>
-            </cylinder>
+	    <box>
+	      <size>0.03 0.03 0.03</size>
+	    </box>
+            <!--mesh>
+              <uri>model://tower1/meshes/tower1.dae</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh-->
           </geometry>
           <material>
             <lighting>1</lighting>
@@ -266,16 +323,19 @@
           <max_contacts>10</max_contacts>
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
-            <box>
-              <radius>0.02</radius>
-              <length>0.05</length>
-            </box>
+	    <box>
+	      <size>0.03 0.03 0.03</size>
+	    </box>
+            <!--mesh>
+              <uri>model://tower1/meshes/tower1.dae</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh-->
           </geometry>
           <surface>
             <friction>
               <ode>
-                <mu>1</mu>
-                <mu2>1</mu2>
+                <mu>100</mu>
+                <mu2>100</mu2>
                 <fdir1>0 0 0</fdir1>
                 <slip1>0</slip1>
                 <slip2>0</slip2>
@@ -301,8 +361,8 @@
               <ode>
                 <soft_cfm>0</soft_cfm>
                 <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
+                <kp>1e+100</kp>
+                <kd>1e-100</kd>
                 <max_vel>0.01</max_vel>
                 <min_depth>0</min_depth>
               </ode>
@@ -311,8 +371,8 @@
                 <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
                 <soft_cfm>0</soft_cfm>
                 <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
+                <kp>1e+100</kp>
+                <kd>1e-100</kd>
               </bullet>
             </contact>
           </surface>
@@ -323,12 +383,13 @@
       </link>
       <static>0</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>-0 -0.3 0 0 -0 0</pose>
+      <pose frame=''>0.336 0 0.0412 0 0 0</pose>
     </model>
-    <model name='tower0'>
+ 
+    <model name='tower2'>
       <link name='link_0'>
         <inertial>
-          <mass>1</mass>
+          <mass>0.0001</mass>
           <inertia>
             <ixx>0.145833</ixx>
             <ixy>0</ixy>
@@ -338,14 +399,17 @@
             <izz>0.125</izz>
           </inertia>
         </inertial>
-        <pose frame=''>0 3e-06 0 0 -0 0</pose>
+        <pose frame=''>0 0 0  0 0 0</pose>
         <visual name='visual'>
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
-            <cylinder>
-              <radius>0.01</radius>
-              <length>0.05</length>
-            </cylinder>
+	    <box>
+	      <size>0.02 0.02 0.02</size>
+	    </box>
+            <!--mesh>
+              <uri>model://tower2/meshes/tower2.dae</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh-->
           </geometry>
           <material>
             <lighting>1</lighting>
@@ -362,16 +426,19 @@
           <max_contacts>10</max_contacts>
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
-            <cylinder>
-              <radius>0.01</radius>
-              <length>0.05</length>
-            </cylinder>
+	    <box>
+	      <size>0.02 0.02 0.02</size>
+	    </box>
+            <!--mesh>
+              <uri>model://tower2/meshes/tower2.dae</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh-->
           </geometry>
           <surface>
             <friction>
               <ode>
-                <mu>1</mu>
-                <mu2>1</mu2>
+                <mu>100</mu>
+                <mu2>100</mu2>
                 <fdir1>0 0 0</fdir1>
                 <slip1>0</slip1>
                 <slip2>0</slip2>
@@ -397,8 +464,8 @@
               <ode>
                 <soft_cfm>0</soft_cfm>
                 <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
+                <kp>1e+100</kp>
+                <kd>1e-100</kd>
                 <max_vel>0.01</max_vel>
                 <min_depth>0</min_depth>
               </ode>
@@ -407,8 +474,8 @@
                 <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
                 <soft_cfm>0</soft_cfm>
                 <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
+                <kp>1e+100</kp>
+                <kd>1e-100</kd>
               </bullet>
             </contact>
           </surface>
@@ -419,8 +486,8 @@
       </link>
       <static>0</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>-0 -0.3 0 0 -0 0</pose>
-    </model-->
+      <pose frame=''>0.336 0 0.0723 0 0 0</pose>
+    </model>
 
     <state world_name='default'>
       <sim_time>166 807000000</sim_time>
@@ -438,7 +505,7 @@
         </link>
       </model>
 
-      <model name='towers0'>
+      <!--model name='towers0'>
         <pose frame=''>0 -0.3 0.025 0 0 0</pose>
         <scale>1 1 1</scale>
         <link name='link_0'>
@@ -467,7 +534,7 @@
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-      </model>
+      </model-->
 
       <light name='sun'>
         <pose frame=''>0 0 10 0 -0 0</pose>
@@ -475,7 +542,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>5 -5 2 0 0.275643 2.35619</pose>
+        <pose frame=''>1 -1 0.5 0 0.275643 2.35619</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
